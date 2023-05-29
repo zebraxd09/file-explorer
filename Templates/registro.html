@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../Statics%20-%20Assets/style.css">
+    <title>Inicio de sesión</title>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Inicio de sesión</h1>
+    <form action="../dynamics/login.php" method="POST">
+      <label for="nombre">Nombre:</label><br>
+      <input type="text" id="nombre" name="nombre" required><br>
+
+      <label for="casa">Casa:</label><br>
+      <select id="casa" name="casa" required>
+        <option value="">--Por favor seleccione una casa--</option>
+        <option value="Halcones">Halcones</option>
+        <option value="Teporingos">Teporingos</option>
+        <option value="Ajolotes">Ajolotes</option>
+      </select><br>
+      <input type="submit" value="Iniciar sesión">
+    </form>
+  </div>
+</body>
+</html>
