@@ -2,28 +2,29 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="./statics/css/style.css">
-  <title>Inicio de sesión</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./statics/css/style.css">
+    <title>Archivos Chidos</title>
 </head>
 
 <body>
-  <div class="login-container">
-    <h1>Inicio de sesión</h1>
-    <form action="./dynamics/php/login.php" method="POST">
-      <label for="nombre">Nombre:</label><br>
-      <input type="text" id="nombre" name="nombre" required><br>
-
-      <label for="casa">Casa:</label><br>
-      <select id="casa" name="casa" required>
-        <option value="">--Selecciona una casa--</option>
-        <option value="Halcones">Halcones</option>
-        <option value="Teporingos">Teporingos</option>
-        <option value="Ajolotes">Ajolotes</option>
-      </select><br>
-      <input type="submit" value="Iniciar sesión">
-    </form>
-  </div>
+    <div class="login-container">
+        <h1>INICIO DE SESIÓN</h1>
+        <form action="./dynamics/php/action.php" method="POST" target="_self">
+            <legend>Bienvenidx</legend><br>
+            <label for="user">Usuario:</label><br>
+            <input type="text" id="user" name="user" placeholder="Usuario" required><br><br>
+            <label for="casa">Casa:</label><br>
+            <select id="casa" name="casa" required>
+                <option disabled selected>Selecciona una casa</option>
+                <option value="Halcones">Halcones</option>
+                <option value="Teporingos">Teporingos</option>
+                <option value="Ajolotes">Ajolotes</option>
+            </select><br><br>
+            <!-- <button type="submit" value="action.php">Iniciar sesión</button> -->
+            <input type="submit" value="Iniciar sesión">
+        </form>
+    </div>
 </body>
 
 </html>
