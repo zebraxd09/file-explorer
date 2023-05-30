@@ -16,7 +16,7 @@
         <th>Acción</th>
         <th>Archivo/Carpeta</th>
     </tr>
-    <!-- Aquí irían las filas con los registros de las acciones, se generan dinámicamente con PHP -->
+    <!-- Aquí irían los registros, se sacan e php -->
 </table>
 
 <button onclick="location.href='./accion.php'">Realizar otra acción</button>
