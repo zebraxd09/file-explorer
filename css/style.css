@@ -1,6 +1,9 @@
 body {
     font-family: 'Times New Roman', Times, serif;
-    background: url('./background.png') no-repeat center center fixed;
+    background-image: url("../statics/images/fondos/login.png");
+    /* background-image: url("../statics/images/fondos/teporingos.png"); */
+    /* background-image: url("../statics/images/fondos/halcones.png"); */
+    /* background-image: url("../statics/images/fondos/ajolotes.png"); */
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -26,11 +29,13 @@ form {
     max-width: 500px;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 }
 
-label, select, input {
+label,
+select,
+input {
     width: 100%;
     margin-bottom: 10px;
 }
@@ -41,14 +46,16 @@ label {
     color: #007BFF;
 }
 
-select, input[type="text"] {
+select,
+input[type="text"] {
     padding: 10px;
     border: 1px solid #007BFF;
     border-radius: 5px;
     font-size: 16px;
 }
 
-input[type="submit"], button {
+input[type="submit"],
+button {
     cursor: pointer;
     padding: 10px 20px;
     border: none;
@@ -59,7 +66,8 @@ input[type="submit"], button {
     transition: 0.3s;
 }
 
-input[type="submit"]:hover, button:hover {
+input[type="submit"]:hover,
+button:hover {
     background-color: #0056b3;
 }
 
@@ -71,7 +79,8 @@ table {
     margin: 0 auto;
 }
 
-th, td {
+th,
+td {
     padding: 10px;
     border: 1px solid #007BFF;
 }
