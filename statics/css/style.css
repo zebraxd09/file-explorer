@@ -1,17 +1,15 @@
 body {
     font-family: 'Times New Roman', Times, serif;
-    background-image: url("../statics/images/fondos/login.png");
-    /* background-image: url("../statics/images/fondos/teporingos.png"); */
-    /* background-image: url("../statics/images/fondos/halcones.png"); */
-    /* background-image: url("../statics/images/fondos/ajolotes.png"); */
-    -webkit-background-size: cover;
+    background-image: url("../media/img/fondos/login.png");
+    /* background-image: url("../media/img/fondos/ajolotes.png"); */
+    /* background-image: url("../media/img/fondos/teporingos.png"); */
+    /* background-image: url("../media/img/fondos/halcones.png"); */
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     color: #F4F6F8;
     text-align: center;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
