@@ -24,9 +24,9 @@
 
 <body>
 <?php
+    var_dump($_SESSION);
     $user=$_SESSION['user'];
     $casa=$_SESSION['casa'];
-    var_dump($_SESSION);
     echo
     '        
         <div>

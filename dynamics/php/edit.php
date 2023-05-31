@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(!isset($_SESSION['user']) && !isset($_SESSION['casa'])) 
+    if($_SESSION['user']===false) 
     {
         header('location: ../../index.php');
         exit();
@@ -18,6 +18,7 @@
 
 <body>
 <?php
+    var_dump($_SESSION);
     $action=(isset($_POST["action"]) && $_POST["action"] != "")? $_POST["action"]:false;
     $edit=(isset($_POST["edit"]) && $_POST["edit"] != "")? $_POST["edit"]:false;
     $_SESSION['edit']=$edit;
@@ -29,9 +30,9 @@
             <h1>¿QUÉ QUIERES '.strtoupper($action).' '.strtoupper($user).'?</h1>
             <form action="./record.php" method="POST" target="_self">
                 <legend>Tipo:</legend><br>
-                <input type="radio" id="file" name="edit" value="file">
+                <input type="radio" id="file" name="edit" value="el archivo">
                 <label for="file">Archivo</label><br><br>
-                <input type="radio" id="folder" name="edit" value="folder">
+                <input type="radio" id="folder" name="edit" value="la carpeta">
                 <label for="folder">Carpeta</label><br><br>
                 <label for="user">Nombre del elemento:</label><br>
                 <input type="text" id="f_name" name="f_name" placeholder="nombre.ext" required><br><br>';

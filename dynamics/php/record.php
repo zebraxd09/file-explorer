@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(!isset($_SESSION['user']) && !isset($_SESSION['casa'])) 
+    if($_SESSION['user']===false) 
     {
         header('location: ./login.php');
         exit();
@@ -19,55 +19,43 @@
 <body>
 <?php
     var_dump($_SESSION);
+    $f_name=(isset($_POST["f_name"]) && $_POST["f_name"] != "")? $_POST["f_name"]:false;
+    $edit=(isset($_POST["edit"]) && $_POST["edit"] != "")? $_POST["edit"]:false;
     $user=$_SESSION['user'];
     $casa=$_SESSION['casa']; 
-    if(!isset($_SESSION['action']))
+    $action=$_SESSION['action'];
+    // REGISTRO DE ACCIONES
+    $f_record=fopen("../../record.txt","a+");
+    if($action!=false)
     {
-        echo'
-            <div>
-                <h1>Registro de acciones</h1>
-                <ul type="disk">
-                    <li>Aún no se han hecho cambios</li>     
-                </ul>
-            </div>
-        ';
-    }
-    if(isset($_SESSION['action']) && isset($_SESSION['edit']))
-    // if($_SESSION['action']===true)
-    {
-        $f_name=(isset($_POST["f_name"]) && $_POST["f_name"] != "")? $_POST["f_name"]:false;
-        $action=$_SESSION['action'];
-        // REGISTRO DE ACCIONES
-        $f_record=fopen("../../record.txt","a+");
-        if($action!=false)
+        if($action=='renombrar')
         {
-            if($action=='renombrar')
-            {
-                $f_name2=(isset($_POST["f_name2"]) && $_POST["f_name2"] != "")? $_POST["f_name2"]:false;
-                fwrite($f_record, "El usuario '".$user."' de la casa '".$casa."' decidió ".$action." el archivo: '".$f_name."' a: '".$f_name2."'\n");
-            }
-            else
-            {
-                fwrite($f_record, "El usuario '".$user."' de la casa '".$casa."' decidió ".$action." el archivo: '".$f_name."'\n");
-            }
+            $f_name2=(isset($_POST["f_name2"]) && $_POST["f_name2"] != "")? $_POST["f_name2"]:false;
+            fwrite($f_record, "El usuario '".$user."' de la casa '".$casa."' decidió ".$action." ".$edit.": '".$f_name."' a: '".$f_name2."'\n");
         }
-        rewind($f_record);
-        echo'
-            <div>
-                <h1>Registro de acciones</h1>
-                <ul type="disk">';
-                        while(!feof($f_record))
-                        {
-                            echo '<li>'.fgets($f_record).'</li>';
-                        }
-                '</ul>
-            </div>
-        ';
-        //accion
-        if(isset($_POST['f_name']))
+        else
         {
-            $f_name='../../statics/media/arch/'.$_POST['f_name'];
-            $ext=pathinfo($f_name,PATHINFO_EXTENSION);
+            fwrite($f_record, "El usuario '".$user."' de la casa '".$casa."' decidió ".$action." ".$edit.": '".$f_name."'\n");
+        }
+    }
+    rewind($f_record);
+    echo'
+        <div>
+            <h1>Registro de acciones</h1>
+            <ul type="disk">';
+                    while(!feof($f_record))
+                    {
+                        echo '<li>'.fgets($f_record).'</li>';
+                    }
+            '</ul>
+        </div>
+    ';
+    // ACCIÓN
+    $f_name='../../statics/media/arch/'.$f_name;
+    $ext=pathinfo($f_name,PATHINFO_EXTENSION);
+    switch($edit)
+    {
+        case 'el archivo':
             switch($action)
             {
                 case 'crear':
@@ -75,7 +63,7 @@
                     fclose($file);
                     break;
                 case 'renombrar':
-                    $f_name2='../../statics/media/arch/'.$_POST['f_name2'];
+                    $f_name2='../../statics/media/arch/'.$_POST["f_name2"];
                     $file=fopen($f_name,'r');
                     rename($f_name,$f_name2);
                     fclose($file);
@@ -84,12 +72,27 @@
                     unlink($f_name);
                     break;
             }
-        }
-        fclose($f_record);
+            break;
+        case 'la carpeta':
+            switch($action)
+            {
+                case 'crear':
+                    mkdir($f_name);
+                    break;
+                case 'renombrar':
+                    $f_name2='../../statics/media/arch/'.$_POST["f_name2"];
+                    rename($f_name,$f_name2);
+                    break;
+                case 'eliminar':
+                    rmdir($f_name);
+                    break;
+            }
+            break;
     }
+    fclose($f_record);
     echo 
     '
-        <a href="./action.php">Volver a Inicio</a><br><br>
+        <br><a href="./action.php">Volver a Inicio</a><br><br>
     ';
     $_SESSION['action']=false;
 ?>    
