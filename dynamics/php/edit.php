@@ -18,7 +18,7 @@
 
 <body>
 <?php
-    var_dump($_SESSION);
+    // var_dump($_SESSION);
     $action=(isset($_POST["action"]) && $_POST["action"] != "")? $_POST["action"]:false;
     $edit=(isset($_POST["edit"]) && $_POST["edit"] != "")? $_POST["edit"]:false;
     $_SESSION['edit']=$edit;

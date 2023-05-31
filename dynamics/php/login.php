@@ -15,9 +15,9 @@
 </head>
 
 <body>
-    <div class="login-container">
-        <h1>INICIO DE SESIÓN</h1>
-        <form action="./action.php" method="POST" target="_self">
+    <div class="container">
+        <label class="title">INICIO DE SESIÓN</label>
+        <form action="./action.php" method="POST" target="_self" class="texto-plano">
             <legend>Bienvenidx</legend><br>
             <label for="user">Usuario:</label><br>
             <input type="text" id="user" name="user" placeholder="Usuario" required><br><br>
