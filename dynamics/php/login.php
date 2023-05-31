@@ -16,19 +16,19 @@
 
 <body>
     <div class="container">
-        <label class="title">INICIO DE SESIÓN</label>
+        <p class="title">INICIO DE SESIÓN</p>
         <form action="./action.php" method="POST" target="_self" class="texto-plano">
-            <legend>Bienvenidx</legend><br>
+            <legend>¡Bienvenidx!</legend><br>
             <label for="user">Usuario:</label><br>
-            <input type="text" id="user" name="user" placeholder="Usuario" required><br><br>
+            <input type="text" id="user" name="user" placeholder="Usuario" class="input"required><br><br>
             <label for="casa">Casa:</label><br>
-            <select id="casa" name="casa" required>
-                <option disabled selected>Selecciona una casa</option>
+            <select id="casa" class="input" name="casa" required>
+                <option id="sel-c" disabled selected>Selecciona una casa</option>
                 <option value="halcones">Halcones</option>
                 <option value="teporingos">Teporingos</option>
                 <option value="ajolotes">Ajolotes</option>
             </select><br><br>
-            <input type="submit" value="Iniciar sesión">
+            <input id="button" class="input" type="submit" value="Iniciar sesión">
         </form>
     </div>
 </body>

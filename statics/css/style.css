@@ -8,21 +8,22 @@
 :root {
     --gray: rgb(103, 103, 103);
     --border: 4px rgb(79, 79, 79) solid;
-    --font_sz: 1.5rem;
+    --font_sz: 2rem;
 }
 
 /* ======================BODY============================ */
 
+p {
+    margin: 0;
+}
+
 body {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
     background-color: rgb(160, 160, 160);
     background-image: url("../media/img/fondos/login.png");
     /* background-image: url("../media/img/fondos/ajolotes.png"); */
     /* background-image: url("../media/img/fondos/teporingos.png"); */
     /* background-image: url("../media/img/fondos/halcones.png"); */
+    background-size: 100vw;
     background-size: 100vh;
     color: rgb(103, 103, 103);
 }
@@ -30,27 +31,22 @@ body {
 /* ===================CONTAINER========================= */
 
 .container {
+    position: relative;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
     height: 100%;
     width: 50%;
-    border: 100%;
-    align-items: center;
-    justify-content: center;
+    border: 100px transparent;
     font-size: 1.5em;
 }
 
 .title {
-    border: 100%;
     position: relative;
+    text-align: center;
     color: var(--gray);
     background-color: rgb(209, 203, 154);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    height: 17%;
-    width: 100%;
     padding: 0.6em;
     border-top-left-radius: 2vh;
     border-top-right-radius: 2vh;
@@ -60,16 +56,32 @@ body {
 
 .texto-plano {
     position: relative;
-    /* display: flex;
-    flex-wrap: wrap; */
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.4);
-    width: 100%;
-    font-size: var(--font_sz);
-    padding: 2em;
+    color: rgb(209, 203, 154);
+    background-color: rgba(66, 66, 66, 0.8);
+    padding: 1em;
     border-bottom-left-radius: 2vh;
     border-bottom-right-radius: 2vh;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: var(--font_sz);
+    font-family: 'pixel';
+}
+
+.input {
+    padding: 0.5em;
+    border-radius: 10px;
+    background-color: rgb(209, 203, 154);
+    font-family: 'pixel';
+    font-size: 0.5em;
+    border: 0;
+    color: var(--gray);
+}
+
+#sel-c {
+    color: rgb(163, 162, 162);
+}
+
+.input:hover {
+    opacity: 80%;
 }
 
 /* form {
