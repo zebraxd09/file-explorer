@@ -1,5 +1,10 @@
 <?php
     session_start();
+    if(!isset($_SESSION['user'])) 
+    {
+        header('location: ../../index.php');
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -13,8 +18,9 @@
 
 <body>
 <?php
-    $user=$_SESSION['user'];
     $action=(isset($_POST["action"]) && $_POST["action"] != "")? $_POST["action"]:false;
+    $_SESSION['action']=$action;
+    $user=$_SESSION['user'];
     echo
     '        
         <div>
@@ -32,7 +38,7 @@
                     echo 
                     '
                         <label for="user">Nuevo nombre del elemento:</label><br>
-                        <input type="text" id="f_name" name="f_name" placeholder="nombre.ext" required><br><br>
+                        <input type="text" id="f_name2" name="f_name2" placeholder="nombre.ext" required><br><br>
                     ';
                 }
                 echo
@@ -41,7 +47,6 @@
             </form>
         </div>
     ';
-    
 ?>
 </body>
 

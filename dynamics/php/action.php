@@ -1,5 +1,10 @@
 <?php
     session_start();
+    if(!isset($_SESSION['user'])) 
+    {
+        header('location: ./login.php');
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -13,8 +18,10 @@
 
 <body>
 <?php
+    $casa=(isset($_POST["casa"]) && $_POST["casa"] != "")? $_POST["casa"]:false;
     $user=(isset($_POST["user"]) && $_POST["user"] != "")? $_POST["user"]:false;
     $_SESSION['user']=$user;
+    $_SESSION['casa']=$casa;
     echo
     '        
         <div>

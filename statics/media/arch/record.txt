@@ -1,0 +1,4 @@
+El usuario 'angel' de la casa 'halcones' decidió crear el archivo: 'armadillo.txt'
+El usuario 'angel' de la casa 'halcones' decidió renombrar el archivo: 'armadillo.txt' a: 'delfin.txt'
+El usuario 'angel' de la casa 'halcones' decidió eliminar el archivo: 'delfin.txt'
+El usuario 'luis' de la casa 'teporingos' decidió crear el archivo: 'caca.xlsx'
