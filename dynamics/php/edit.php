@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(!isset($_SESSION['user'])) 
+    if(!isset($_SESSION['user']) && !isset($_SESSION['casa'])) 
     {
         header('location: ../../index.php');
         exit();
@@ -19,6 +19,8 @@
 <body>
 <?php
     $action=(isset($_POST["action"]) && $_POST["action"] != "")? $_POST["action"]:false;
+    $edit=(isset($_POST["edit"]) && $_POST["edit"] != "")? $_POST["edit"]:false;
+    $_SESSION['edit']=$edit;
     $_SESSION['action']=$action;
     $user=$_SESSION['user'];
     echo

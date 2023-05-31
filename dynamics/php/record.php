@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(!isset($_SESSION['user'])) 
+    if(!isset($_SESSION['user']) && !isset($_SESSION['casa'])) 
     {
         header('location: ./login.php');
         exit();
@@ -17,7 +17,10 @@
 </head>
 
 <body>
-<?php 
+<?php
+    var_dump($_SESSION);
+    $user=$_SESSION['user'];
+    $casa=$_SESSION['casa']; 
     if(!isset($_SESSION['action']))
     {
         echo'
@@ -29,34 +32,35 @@
             </div>
         ';
     }
-    $user=$_SESSION['user'];
-    $casa=$_SESSION['casa'];
-    if(isset($_SESSION['action']) && isset($_SESSION['user']))
+    if(isset($_SESSION['action']) && isset($_SESSION['edit']))
+    // if($_SESSION['action']===true)
     {
         $f_name=(isset($_POST["f_name"]) && $_POST["f_name"] != "")? $_POST["f_name"]:false;
         $action=$_SESSION['action'];
-        $f_record=fopen("../../statics/media/arch/record.txt","a+");
-        if($action=='renombrar')
+        // REGISTRO DE ACCIONES
+        $f_record=fopen("../../record.txt","a+");
+        if($action!=false)
         {
-            $f_name2=(isset($_POST["f_name2"]) && $_POST["f_name2"] != "")? $_POST["f_name2"]:false;
-            fwrite($f_record, "El usuario '".$user."' de la casa '".$casa."' decidió ".$action." el archivo: '".$f_name."' a: '".$f_name2."'\n");
-        }
-        else
-        {
-            fwrite($f_record, "El usuario '".$user."' de la casa '".$casa."' decidió ".$action." el archivo: '".$f_name."'\n");
+            if($action=='renombrar')
+            {
+                $f_name2=(isset($_POST["f_name2"]) && $_POST["f_name2"] != "")? $_POST["f_name2"]:false;
+                fwrite($f_record, "El usuario '".$user."' de la casa '".$casa."' decidió ".$action." el archivo: '".$f_name."' a: '".$f_name2."'\n");
+            }
+            else
+            {
+                fwrite($f_record, "El usuario '".$user."' de la casa '".$casa."' decidió ".$action." el archivo: '".$f_name."'\n");
+            }
         }
         rewind($f_record);
         echo'
             <div>
                 <h1>Registro de acciones</h1>
-                <ul type="disk">
-                    <li>';
+                <ul type="disk">';
                         while(!feof($f_record))
                         {
                             echo '<li>'.fgets($f_record).'</li>';
                         }
-                    '</li>
-                </ul>
+                '</ul>
             </div>
         ';
         //accion
@@ -83,6 +87,11 @@
         }
         fclose($f_record);
     }
+    echo 
+    '
+        <a href="./action.php">Volver a Inicio</a><br><br>
+    ';
+    $_SESSION['action']=false;
 ?>    
 </body>
 </html>

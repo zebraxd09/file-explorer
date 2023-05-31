@@ -31,10 +31,6 @@
             <input type="submit" value="Iniciar sesión">
         </form>
     </div>
-    <?php
-        $user=(isset($_POST["user"]) && $_POST["user"] != "")? $_POST["user"]:false;
-        $_SESSION['user']=$user;
-    ?>
 </body>
 
 </html>

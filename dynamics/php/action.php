@@ -1,12 +1,18 @@
 <?php
     session_start();
-    if(!isset($_SESSION['user'])) 
+    if(!isset($_SESSION['user']) && !isset($_SESSION['casa']))
     {
-        header('location: ./login.php');
-        exit();
+        $user=(isset($_POST["user"]) && $_POST["user"] != "")? $_POST["user"]:false;
+        $casa=(isset($_POST["casa"]) && $_POST["casa"] != "")? $_POST["casa"]:false;
+        $_SESSION['user']=$user;
+        $_SESSION['casa']=$casa;
+        if($_SESSION['user']===false) 
+        {
+            header('location: ./login.php');
+            exit();
+        }
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -18,10 +24,9 @@
 
 <body>
 <?php
-    $casa=(isset($_POST["casa"]) && $_POST["casa"] != "")? $_POST["casa"]:false;
-    $user=(isset($_POST["user"]) && $_POST["user"] != "")? $_POST["user"]:false;
-    $_SESSION['user']=$user;
-    $_SESSION['casa']=$casa;
+    $user=$_SESSION['user'];
+    $casa=$_SESSION['casa'];
+    var_dump($_SESSION);
     echo
     '        
         <div>
