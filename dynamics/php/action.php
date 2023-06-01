@@ -42,7 +42,9 @@
                 <label for="eliminar">Eliminar</label><br><br>
                 <input type="submit" id="'.$casa.'" class="input" value="Aceptar">
             </form><br>
-            <a id="'.$casa.'" class="input" href="./record.php">Registro</a><br><br>
+            <div>
+                <a id="'.$casa.'" class="input" href="./record.php">Registro</a><br><br>
+            </div>
             <a id="'.$casa.'" class="input" href="./logout.php">Salir</a>
         </div>
     </body> 

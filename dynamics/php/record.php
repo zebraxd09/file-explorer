@@ -20,6 +20,7 @@
 <?php
     $f_name=(isset($_POST["f_name"]) && $_POST["f_name"] != "")? $_POST["f_name"]:false;
     $edit=(isset($_POST["edit"]) && $_POST["edit"] != "")? $_POST["edit"]:false;
+    $action=(isset($_POST["action"]) && $_POST["action"] != "")? $_POST["action"]:false;
     $user=$_SESSION['user'];
     $casa=$_SESSION['casa']; 
     $action=$_SESSION['action'];

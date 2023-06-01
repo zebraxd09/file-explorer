@@ -1,2 +1,4 @@
 El usuario 'luis' de la casa 'ajolotes' decidió crear el archivo: 'hola'
 El usuario 'luis' de la casa 'ajolotes' decidió crear la carpeta: 'pene'
+El usuario 'hola' de la casa 'teporingos' decidió renombrar la carpeta: 'pene' a: 'computadora'
+El usuario 'hola' de la casa 'teporingos' decidió eliminar la carpeta: 'computadora'
