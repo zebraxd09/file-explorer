@@ -3,31 +3,33 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="./statics/css/style.css">
+    <link rel="icon" href="../../statics/media/img/file.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../../statics/css/style.css">
     <title>Archivos Chidos</title>
 </head>
 
-<body>
 <?php
     session_start();
-    if($_SESSION['user']===false)
+    if(!isset($_SESSION['user']) && !isset($_SESSION['casa']))
     {
         header('location: ../../index.php');
         exit();
     }
     else
     {
-        var_dump($_SESSION);
         $user=$_SESSION['user'];
+        $casa=$_SESSION['casa']; 
         echo 
         '
-            <div>
-                <h1>¡ADIÓS '.strtoupper($user).'!</h1>
+        <body id="'.$casa.'-b">
+            <div class="container">
+                <p id="'.$casa.'" class="title">¡ADIÓS '.strtoupper($user).'!</p>
+                <a id="'.$casa.'" class="input" href="./login.php">Volver a Inicio</a>  
             </div>  
-            <a href="./login.php">Inicio</a>  
+        </body>
         ';
-        session_destroy();
     }
+    session_destroy();
 ?>
-</body>
+
 </html>

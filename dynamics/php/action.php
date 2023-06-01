@@ -13,25 +13,26 @@
         }
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="./statics/css/style.css">
+    <link rel="icon" href="../../statics/media/img/file.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../../statics/css/style.css">
     <title>Archivos Chidos</title>
 </head>
 
-<body>
 <?php
-    // var_dump($_SESSION);
     $user=$_SESSION['user'];
     $casa=$_SESSION['casa'];
     echo
-    '        
-        <div>
-            <h1>¿QUÉ QUIERES HACER '.strtoupper($user).'?</h1>
-            <form action="./edit.php" method="POST" target="_self">
+    '   
+    <body id="'.$casa.'-b">
+        <div class="container">
+            <p id="'.$casa.'" class="title">¿QUÉ QUIERES HACER '.strtoupper($user).'?</p>
+            <form action="./edit.php" method="POST" target="_self" id="'.$casa.'-t" class="texto-plano">
                 <legend>Acciones</legend><br>
                 <input type="radio" id="crear" name="action" value="crear">
                 <label for="crear">Crear</label><br><br>
@@ -39,13 +40,13 @@
                 <label for="renombrar">Renombrar</label><br><br>
                 <input type="radio" id="eliminar" name="action" value="eliminar">
                 <label for="eliminar">Eliminar</label><br><br>
-                <input type="submit" value="Aceptar">
+                <input type="submit" id="'.$casa.'" class="input" value="Aceptar">
             </form><br>
-            <a href="./record.php">Registro</a><br><br>
-            <a href="./logout.php">Salir</a>
+            <a id="'.$casa.'" class="input" href="./record.php">Registro</a><br><br>
+            <a id="'.$casa.'" class="input" href="./logout.php">Salir</a>
         </div>
+    </body> 
     ';
 ?>
-</body>
 
 </html>

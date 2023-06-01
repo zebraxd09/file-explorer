@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if($_SESSION['user']===false) 
+    if(!isset($_SESSION['user']) && !isset($_SESSION['casa']))
     {
         header('location: ./login.php');
         exit();
@@ -12,13 +12,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="./statics/css/style.css">
+    <link rel="icon" href="../../statics/media/img/file.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../../statics/css/style.css">
     <title>Archivos Chidos</title>
 </head>
 
-<body>
 <?php
-    // var_dump($_SESSION);
     $f_name=(isset($_POST["f_name"]) && $_POST["f_name"] != "")? $_POST["f_name"]:false;
     $edit=(isset($_POST["edit"]) && $_POST["edit"] != "")? $_POST["edit"]:false;
     $user=$_SESSION['user'];
@@ -40,9 +39,10 @@
     }
     rewind($f_record);
     echo'
-        <div>
-            <h1>Registro de acciones</h1>
-            <ul type="disk">';
+    <body id="'.$casa.'-b">
+        <div class="container">
+            <p id="'.$casa.'" class="title">Registro de acciones</p>
+            <ul type="disk" id="'.$casa.'-t" class="texto-plano">';
                     while(!feof($f_record))
                     {
                         echo '<li>'.fgets($f_record).'</li>';
@@ -92,9 +92,9 @@
     fclose($f_record);
     echo 
     '
-        <br><a href="./action.php">Volver a Inicio</a><br><br>
+        <br><a id="'.$casa.'" class="input" href="./action.php">Volver a Inicio</a>
+    </body>
     ';
     $_SESSION['action']=false;
 ?>    
-</body>
 </html>

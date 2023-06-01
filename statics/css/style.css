@@ -18,17 +18,27 @@ p {
 }
 
 body {
+    align-items: center;
+    justify-content: center;
     background-color: rgb(160, 160, 160);
     background-image: url("../media/img/fondos/login.png");
-    /* background-image: url("../media/img/fondos/ajolotes.png"); */
-    /* background-image: url("../media/img/fondos/teporingos.png"); */
-    /* background-image: url("../media/img/fondos/halcones.png"); */
     background-size: 100vw;
     background-size: 100vh;
     color: rgb(103, 103, 103);
 }
 
 /* ===================CONTAINER========================= */
+
+a {
+    text-decoration: none;
+    font-size: 0.6em;
+    padding: 0.5em;
+}
+
+ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
 
 .container {
     position: relative;
@@ -38,7 +48,6 @@ body {
     margin-bottom: 1em;
     height: 100%;
     width: 50%;
-    border: 100px transparent;
     font-size: 1.5em;
 }
 
@@ -71,7 +80,7 @@ body {
     border-radius: 10px;
     background-color: rgb(209, 203, 154);
     font-family: 'pixel';
-    font-size: 0.5em;
+    font-size: 0.6em;
     border: 0;
     color: var(--gray);
 }
@@ -84,72 +93,48 @@ body {
     opacity: 80%;
 }
 
-/* form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 60%;
-    max-width: 500px;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+/* ==================VARIACIONES======================== */
+/* -----------HALCONES------------ */
+#halcones {
+    background-color: #524542;
+    color: rgb(207, 207, 207);
 }
 
-label,
-select,
-input {
-    width: 100%;
-    margin-bottom: 10px;
+#halcones-b {
+    background-image: url("../media/img/fondos/halcones.png");
 }
 
-label {
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #007BFF;
+#halcones-t {
+    background-color: rgba(156, 156, 156, 0.6);
+    color: #524542;
 }
 
-select,
-input[type="text"] {
-    padding: 10px;
-    border: 1px solid #007BFF;
-    border-radius: 5px;
-    font-size: 16px;
+/* ---------TEPORINGOS---------- */
+
+#teporingos {
+    background-color: #4a5156;
+    color: rgb(207, 207, 207);
 }
 
-input[type="submit"],
-button {
-    cursor: pointer;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007BFF;
-    color: #fff;
-    font-size: 18px;
-    transition: 0.3s;
+#teporingos-b {
+    background-image: url("../media/img/fondos/teporingos.png");
 }
 
-input[type="submit"]:hover,
-button:hover {
-    background-color: #0056b3;
+#teporingos-t {
+    background-color: rgba(198, 198, 198, 0.4);
+    color: #4a5156;
 }
 
-table {
-    width: 80%;
-    max-width: 800px;
-    border-collapse: collapse;
-    background-color: rgba(255, 255, 255, 0.8);
-    margin: 0 auto;
+/* ----------AJOLOTES----------- */
+
+#ajolotes {
+    background-color: #ff92a4;
 }
 
-th,
-td {
-    padding: 10px;
-    border: 1px solid #007BFF;
+#ajolotes-b {
+    background-image: url("../media/img/fondos/ajolotes.png");
 }
 
-th {
-    background-color: #007BFF;
-    color: #fff;
-} */
+#ajolotes-t {
+    color: #ff92a4;
+}
